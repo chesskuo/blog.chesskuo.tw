@@ -50,14 +50,14 @@ darkmode: true
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/icon/hacker.16.png
+  medium: /images/icon/hacker.32.png
+  apple_touch_icon: /images/hacker.256.png
+  safari_pinned_tab: /images/icon/hacker.svg
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: #/uploads/custom-logo.jpg
+custom_logo: #/images/icon/hacker.512.png
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/about/cclicenses/
@@ -127,7 +127,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /images/avatar.gif
+  url: /images/avatar.jpg
   # If true, the avatar will be dispalyed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
