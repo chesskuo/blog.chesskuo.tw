@@ -2,7 +2,7 @@
 title: AIS3 2020 pre-exam Writeups
 date: 2020-06-18 10:37:49
 tags:
-- ctf
+	- ctf
 ---
 
 ![](https://i.imgur.com/AyfQHQv.png)

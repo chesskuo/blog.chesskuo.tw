@@ -2,7 +2,7 @@
 title: First Post
 date: 2018-08-31 09:48:47
 tags:
-- diary
+	- diary
 ---
 
 # 恩…搞了一整天終於架起來了

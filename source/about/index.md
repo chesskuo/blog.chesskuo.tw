@@ -1,13 +1,14 @@
 ---
 title: About Me
 date: 2021-07-30 14:00:58
+comments: false
 ---
 
 # $> whoami
 
 - Name : 郭又誠 (Chess Kuo)
 - Nickname : chesskuo
-- Email : owo&#64;chesskuo&#46;tw
+- Email : owo@chesskuo\[.\]tw
 
 # $> education
 
@@ -20,6 +21,7 @@ date: 2021-07-30 14:00:58
 - 107 年度 NISRA 核心幹部 & 講師 & 網管
 - FJU CPC 講師 & 網管
 - 行政院網路攻防演練攻擊手
+- AS210932 Maintainer ([PeeringDB](https://peeringdb.com/net/27631))
 
 # $> agenda
 
@@ -42,31 +44,32 @@ date: 2021-07-30 14:00:58
 # $> timeline
 
 - 2021
-    - 獲得 戴夫寇爾資訊安全獎學金 2021
-    - AIS3 2021 (Pre-exam 12th)
-    - 2021 T貓盃 全國資安基礎實務能力競賽 大專院校組 冠軍
-    - CYBERSEC 2021
-    - SecureBug TYR CTF 2021 世界排名 10th
+	- 08/06 取得 AS210932
+    - --/-- 獲得 戴夫寇爾資訊安全獎學金 2021
+    - --/-- AIS3 2021 (Pre-exam 12th)
+    - --/-- 2021 T貓盃 全國資安基礎實務能力競賽 大專院校組 冠軍
+    - --/-- CYBERSEC 2021
+    - --/-- SecureBug TYR CTF 2021 世界排名 10th
 
 - 2020
-	- HITCON 2020 行政組-門機組 組員
-	- CYBERSEC 2020
-	- SITCON 2020
-	- COSCUP 2020
-	- AIS3 2020 正取學員 (Pre-exam 24th)
-	- 合勤 榮耀資戰 決賽 - 9th place
-	- 獲得 戴夫寇爾資訊安全獎學金 2020
-	- AIS3 EOF CTF 2020 初賽
+	- --/-- HITCON 2020 行政組-門機組 組員
+	- --/-- CYBERSEC 2020
+	- --/-- SITCON 2020
+	- --/-- COSCUP 2020
+	- --/-- AIS3 2020 正取學員 (Pre-exam 24th)
+	- --/-- 合勤 榮耀資戰 決賽 (9th)
+	- --/-- 獲得 戴夫寇爾資訊安全獎學金 2020
+	- --/-- AIS3 EOF CTF 2020 初賽
 - 2019
-	- DEVCORE Conf. 2019
-	- AIS3 2019 正取學員 (Pre-exam 87th)
-	- ACM-ICPC NCPU 2019 - Silver (9th)
-	- 取得 行政院網路攻防演練攻擊手資格
-	- SITCON 2019
-	- 成為 NISRA 一員
+	- --/-- DEVCORE Conf. 2019
+	- --/-- AIS3 2019 正取學員 (Pre-exam 87th)
+	- --/-- ACM-ICPC NCPU 2019 - Silver (9th)
+	- --/-- 取得 行政院網路攻防演練攻擊手資格
+	- --/-- SITCON 2019
+	- --/-- 成為 NISRA 一員
 - 2018
-	- 08/31 終於搞好這個 blog 的基本框架了 QQ
-	- 08/30 此 Domain 誕生
-	- AIS3 2018 正取學員 (Pre-exam 名次不可考)
-	- 107 年資安技能金盾獎競賽 初賽
-	- IBM Security CTF Taiwan
+	- 08/31 這個 Blog 出生了
+	- 08/30 Domain : chesskuo.tw 的誕生
+	- --/-- AIS3 2018 正取學員 (Pre-exam 名次不可考)
+	- --/-- 107 年資安技能金盾獎競賽 初賽
+	- --/-- IBM Security CTF Taiwan

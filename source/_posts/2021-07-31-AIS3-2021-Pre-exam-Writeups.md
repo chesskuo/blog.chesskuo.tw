@@ -3,7 +3,7 @@ title: AIS3-2021 Pre-exam Writeups
 date: 2021-07-31 14:55:39
 mathjax: true
 tags:
-- ctf
+    - ctf
 ---
 
 前測終於衝上 1 開頭了
