@@ -6,9 +6,10 @@ comments: false
 
 # $> whoami
 
-- Name : 郭又誠 (Chess Kuo)
-- Nickname : chesskuo
-- Email : owo@chesskuo\[.\]tw
+- name : 郭又誠 (Chess Kuo)
+- nickname : chesskuo
+- e-mail : owo@chesskuo\[.\]tw
+- PGP : `C6178C2E`
 
 # $> education
 
