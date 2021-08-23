@@ -23,6 +23,7 @@ comments: false
 - FJU CPC 講師 & 網管
 - 行政院網路攻防演練攻擊手
 - AS210932 Maintainer ([PeeringDB](https://peeringdb.com/net/27631))
+- AS4242420323 Maintainer @DN42 ([DN42 Registry Query](https://explorer.burble.com/?#/aut-num/AS4242420323))
 
 # $> agenda
 
