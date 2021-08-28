@@ -9,7 +9,7 @@ comments: false
 - name : 郭又誠 (Chess Kuo)
 - nickname : chesskuo
 - e-mail : owo@chesskuo\[.\]tw
-- PGP : `C6178C2E`
+- PGP : C6178C2E
 
 # $> education
 
@@ -33,13 +33,13 @@ comments: false
 | 2019/02/25 | C++ STL 入門          | CPC                   | [Slides](https://slides.com/chesskuo/20190225_stl1)  |
 | 2019/03/28 | PHP 初探              | NISRA                 | [Slides](https://slides.com/chesskuo/20190328_php)   |
 | 2019/08/29 | Web3Bro              | NISRA Enlightened 2019 | [Slides](https://slides.com/chesskuo/20190829_website) |
-| 2019/10/15 | 駭客都愛 PHP          | NISRA                  | [PFD](https://drive.google.com/file/d/1PgNSSWnNuwJ1_GwyDNSVOXTYZ-nuU8iV/view?usp=sharing) |
+| 2019/10/15 | 駭客都愛 PHP          | NISRA                  | [PDF](https://drive.google.com/file/d/1PgNSSWnNuwJ1_GwyDNSVOXTYZ-nuU8iV/view?usp=sharing) |
 | 2020/02/25 | PHP Deserialization  | NISRA Winter Camp 2020 | [PDF](https://drive.google.com/file/d/1RoXSM2yTct9prAcPDOv8bBdOwyDSA45B/view?usp=sharing) |
 | 2020/03/19 | Phar Deserialization | NISRA Training         | [PDF](https://drive.google.com/file/d/1RoXSM2yTct9prAcPDOv8bBdOwyDSA45B/view?usp=sharing) |
 | 2020/08/26 | Basic SQLi           | NISRA Enlightened 2020 | [Slides](https://slides.com/chesskuo/20200826_sqli) |
 | 2020/08/28 | Advanced PHP         | NISRA Enlightened 2020 | [Slides](https://slides.com/chesskuo/20200828_php) |
 | 2020/12/01 | SQLi                 | NISRA                  | [Slides](https://slides.com/chesskuo/20201201_sqli) |
-| 2021/02/06 | Windows內網滲透       | NISRA Winter Training  | [PDF](https://drive.google.com/file/d/1QVS5L6KwSnbxRPvAzVlbyEDDqubdFP81/view?usp=sharing) |
+| 2021/02/06 | Windows 內網滲透      | NISRA Winter Training  | [PDF](https://drive.google.com/file/d/1QVS5L6KwSnbxRPvAzVlbyEDDqubdFP81/view?usp=sharing) |
 | 2021/03/09 | 全世界最好的語言       | NISRA                  | [PDF](https://drive.google.com/file/d/1yp6E0D9-wXnKGeIlbjwcTRmAy46ix0U7/view?usp=sharing) |
 | 2021/05/07 | Python from 0 to -1  | NISRA Training         | [PDF](https://drive.google.com/file/d/1JN_bSn3WNXJQGFn5O9lRhjNxK4HIabgs/view?usp=sharing) |
 
