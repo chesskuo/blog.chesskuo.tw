@@ -50,14 +50,14 @@ darkmode: true
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/icon/hacker.16.png
-  medium: /images/icon/hacker.32.png
-  apple_touch_icon: /images/hacker.256.png
-  safari_pinned_tab: /images/icon/hacker.svg
+  small: /images/icon/chess.16.png
+  medium: /images/icon/chess.32.png
+  apple_touch_icon: /images/chess.256.png
+  safari_pinned_tab: /images/icon/chess.svg
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: #/images/icon/hacker.512.png
+custom_logo: #/images/icon/chess.512.png
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/about/cclicenses/
@@ -127,7 +127,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: /images/avatar.jpg
+  url: /images/avatar.gif
   # If true, the avatar will be dispalyed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
