@@ -1,2 +1,3 @@
 # blog.chesskuo.tw
-blog source
+
+just a repo for blog :P
