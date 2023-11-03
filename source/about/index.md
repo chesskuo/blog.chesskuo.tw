@@ -58,6 +58,8 @@ comments: false
 	- 02/12 AIS3 EOF 決賽資格
 
 - 2021
+	- 12/05 HITCON CTF 2021 - 15th
+	- 11/21 Balsn CTF 2021 - 6th
 	- 11/12 110年 資安技能金盾獎 決賽資格
 	- 11/11 加入 Bamboofox
 	- 10/13 錄取 第六屆 臺灣好厲駭 導師培訓制度
