@@ -26,6 +26,12 @@ comments: false
 - AS4242420323 Maintainer @DN42 ([DN42 Registry Query](https://explorer.burble.com/?#/aut-num/AS4242420323))
 - 竹苗區網中心資通系統安全檢測 實習員
 
+# $> certificate
+
+| Certificated Ethical Hacker (CEH) | OffSec Certified Professional (OSCP) |
+| --- | --- |
+| <img src="/images/certificate/ceh.jpg" width="400px"/> | <a href="https://www.credential.net/901598f3-83e9-429e-8940-874e9e754064"><img src="/images/certificate/oscp.jpg" width="400px"/></a> |
+
 # $> agenda
 
 | Date       | Title                | Event                  | Docs                                                  |
