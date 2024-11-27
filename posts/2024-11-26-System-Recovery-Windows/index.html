@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/chess.256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/chess.32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/chess.16.png">
+  <link rel="mask-icon" href="/images/icon/chess.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.chesskuo.tw","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeIn","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一切的起因就是某天晚上一個朋友說他的 windows 忘記密碼然後錯太多次被鎖起來然後他的電腦有啟用 bitlocker 本來想找公司 infra 幫忙解但他說好像印象中以前 infra 是用 WinPE 解的樣子結果 bitlocker 的 key 就變了 但我想想不太合理改密碼是 bitlocker 解鎖硬碟後對檔案系統的行為怎麼會改個密碼連 bitlocker key 都變了於是就花了點時間">
+<meta property="og:type" content="article">
+<meta property="og:title" content="System Recovery - Windows">
+<meta property="og:url" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/index.html">
+<meta property="og:site_name" content="chess.blog">
+<meta property="og:description" content="一切的起因就是某天晚上一個朋友說他的 windows 忘記密碼然後錯太多次被鎖起來然後他的電腦有啟用 bitlocker 本來想找公司 infra 幫忙解但他說好像印象中以前 infra 是用 WinPE 解的樣子結果 bitlocker 的 key 就變了 但我想想不太合理改密碼是 bitlocker 解鎖硬碟後對檔案系統的行為怎麼會改個密碼連 bitlocker key 都變了於是就花了點時間">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/1.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/2.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/3.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/4.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/5.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/6.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/7.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/8.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/9.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/10.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/11.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/12.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/13.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/14.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/15.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/16.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/17.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/18.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/19.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/20.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/21.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/22.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/23.png">
+<meta property="article:published_time" content="2024-11-26T08:44:29.000Z">
+<meta property="article:modified_time" content="2024-11-27T08:54:27.877Z">
+<meta property="article:author" content="Chess Kuo">
+<meta property="article:tag" content="mgnt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/1.png">
+
+
+<link rel="canonical" href="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/","path":"posts/2024-11-26-System-Recovery-Windows/","title":"System Recovery - Windows"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>System Recovery - Windows | chess.blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20Z1943VPP"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-20Z1943VPP","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">chess.blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#recovery-from-same-windows-system"><span class="nav-text">recovery from same windows system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recovery-from-linux"><span class="nav-text">recovery from linux</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chess Kuo"
+      src="/images/icon/chess.svg">
+  <p class="site-author-name" itemprop="name">Chess Kuo</p>
+  <div class="site-description" itemprop="description">step by step</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chesskuo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chesskuo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:owo@chesskuo.tw" title="E-Mail → mailto:owo@chesskuo.tw" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="System Recovery - Windows | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          System Recovery - Windows
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-26 16:44:29" itemprop="dateCreated datePublished" datetime="2024-11-26T16:44:29+08:00">2024-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:54:27" itemprop="dateModified" datetime="2024-11-27T16:54:27+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-11-26-System-Recovery-Windows/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-11-26-System-Recovery-Windows/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一切的起因就是某天晚上一個朋友說他的 windows 忘記密碼<br>然後錯太多次被鎖起來<br>然後他的電腦有啟用 bitlocker</p>
+<p>本來想找公司 infra 幫忙解<br>但他說好像印象中以前 infra 是用 WinPE 解的樣子<br>結果 bitlocker 的 key 就變了</p>
+<p>但我想想不太合理<br>改密碼是 bitlocker 解鎖硬碟後對檔案系統的行為<br>怎麼會改個密碼連 bitlocker key 都變了<br>於是就花了點時間研究到底 windows 忘記密碼的還原流程到底是如何</p>
+<span id="more"></span>
+
+<p>先說結論有兩種方式</p>
+<ol>
+<li>用原本那台忘記密碼的 windows 系統即可</li>
+<li>把硬碟掛去一台 linux 底下用工具救</li>
+</ol>
+<p>測試環境</p>
+<ul>
+<li>Windows 11</li>
+<li>enabled BitLocker</li>
+</ul>
+<h2 id="recovery-from-same-windows-system"><a href="#recovery-from-same-windows-system" class="headerlink" title="recovery from same windows system"></a>recovery from same windows system</h2><p><img src="/posts/2024-11-26-System-Recovery-Windows/1.png"></p>
+<p>不囉嗦<br>總之登不進去就對了</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/2.png"></p>
+<p>然後到右下角的電源鈕<br>按住 <code>shift</code> + 右下角的 Restart<br>就會進到 recovery mode</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/3.png"></p>
+<p>接著點 Troubleshoot</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/4.png"></p>
+<p>然後點 Advanced options</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/5.png"></p>
+<p>這邊就會出現 Command Prompt 的選項了<br>點下去會先要你輸入 BitLocker 的解密金鑰<br>然後就會送你一個 <code>cmd.exe</code></p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/6.png"></p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/7.png"></p>
+<p>接著要找一下你的系統槽是在這個 recovery mode 的哪<br>可以用 <code>wmic</code> 列一下邏輯槽出來看一下</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic logicaldisk get deviceid,volumename</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/8.png"></p>
+<p>通常沒意外都是 C 槽才對<br>就直接 <code>cd</code> 切換過去吧</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/9.png"></p>
+<p>到這邊我們就要先了解一個事情<br>在鎖定畫面的狀態下<br>右下角第二個那個小人圖標本身其實是一個 exe (<code>Utilman.exe</code>)</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/10.png"></p>
+<p>點開後的每一個功能本身也都是一個 exe</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/11.png"></p>
+<p>所以思路就是去替換掉其中一個 exe 來啟動 <code>cmd.exe</code><br>我們這邊就拿小人圖標開刀</p>
+<p>直接切過去 <code>System32</code> 裡面<br>然後將 <code>Utilman.exe</code> 先備份一下<br>最後將 <code>cmd.exe</code> 複製成 <code>Utilman.exe</code></p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/12.png"></p>
+<p>到這邊已經差不多了<br>可以關掉 cmd 然後正常進入系統</p>
+<p>開機完成後<br>去點那個小人圖標就會跳出一個高權限的 <code>cmd.exe</code> 了</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/13.png"></p>
+<p>最後直接舒舒服服的 <code>net user</code> 改你要的帳號的密碼即可<br>然後就可以舒舒服服去登入系統啦</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/14.png"></p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/15.png"></p>
+<hr>
+<h2 id="recovery-from-linux"><a href="#recovery-from-linux" class="headerlink" title="recovery from linux"></a>recovery from linux</h2><p>這邊就有點小麻煩<br>因為要把硬碟拆下來插去另一台主機上<br>所以如果能用原本的 windows 系統主機來復原當然是最好 XDD</p>
+<p>接著進入正題<br>把硬碟插去 linux 上<br>先用 <code>fdisk</code> 檢查一下到底哪一顆是我們要的</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/16.png"></p>
+<p>可以看到有一個寫著 <code>Microsoft basic data</code> 就是我們的目標<br>而他在的分割區為 <code>/dev/sda3</code></p>
+<p>接著我們需要使用到一個工具叫做 <code>dislocker</code></p>
+<p>它的用處是可以處理 Windows BitLocker 硬碟解密後掛載成 FUSE 結構<br>然後再讓我們把裡面的 NTFS 系統 <code>mount</code> 起來用<br>這樣就可以達到真正修改加密磁碟後裡面的內容</p>
+<p>安裝的話直接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y dislocker</span><br></pre></td></tr></table></figure>
+
+<p>使用上首先要創兩個資料夾準備給掛載用<br>這邊統一在 <code>/mnt/</code> 底下做</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/17.png"></p>
+<p>如同上面所說<br><code>dislocker</code> 需要先將 BitLocker 解密然後形成 FUSE 結構<br>所以需要有一個 <code>decrypt/</code> 資料夾來存放 block file <code>dislocker-file</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dislocker -V &lt;你上面看到的 Windows 分割區&gt; -p&lt;bitlocker-key&gt; -- &lt;掛載點&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/18.png"></p>
+<blockquote>
+<p>在這個步驟如果出現錯誤可能是因為 apt 預設裝的 dislocker 版本有問題<br>改從 <a target="_blank" rel="noopener" href="https://github.com/Aorimn/dislocker">官方 Github</a> 拉下來自己編譯應該就可以解決<br>我這邊測試時用的是 Debian 就有撞到<br>如果改用 Kali 就沒有問題</p>
+</blockquote>
+<p>接著將這個 block file 掛載起來在 <code>c/</code> 資料夾中即可看到 Windows 系統檔案了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o loop /mnt/decrypt/dislocker-file /mnt/c</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/19.png"></p>
+<blockquote>
+<p>這邊也有機會踢到一個問題就是找不到 NTFS driver<br>記得要 <code>apt install nfts-3g</code> 一下</p>
+</blockquote>
+<p>掛載完成後<br>我們需要使用 <code>chntpw</code> 來對 Windows 的 SAM 進行操作以還原帳號密碼</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y chntpw</span><br></pre></td></tr></table></figure>
+
+<p>接著去讀取一下 SAM 的內容看看有哪些使用者存在<br>SAM 在 Windows 系統中的路徑為 <code>C:\Windows\System32\config\SAM</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chntpw -l Windows/System32/config/SAM</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/20.png"></p>
+<p>這邊就拿 <code>User</code> 舉例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chntpw -u User Windows/System32/config/SAM</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/21.png"></p>
+<p><code>chntpw</code> 只能直接清空密碼<br>直接選 <code>1</code> 然後退出即可</p>
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/22.png"></p>
+<p>接下來就按照順序 <code>umount</code> NTFS 磁碟跟 Bitlocker 區塊<br>然後就可以把硬碟插回去給 Windows 開機看看 <code>User</code> 這位使用者是否可以無密碼直接登入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount /mnt/c</span><br><span class="line">umount /mnt/decrypt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/2024-11-26-System-Recovery-Windows/23.png"></p>
+<p>成功<br>不用密碼就能直接登入了</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mgnt/" rel="tag"># mgnt</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/" rel="prev" title="Android 14 Root 生命鬥士">
+                  <i class="fa fa-angle-left"></i> Android 14 Root 生命鬥士
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2024-11-27-System-Recovery-Linux/" rel="next" title="System Recovery - Linux">
+                  System Recovery - Linux <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chess Kuo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"blog-chesskuo-tw","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

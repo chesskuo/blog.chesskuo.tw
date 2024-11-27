@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/chess.256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/chess.32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/chess.16.png">
+  <link rel="mask-icon" href="/images/icon/chess.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.chesskuo.tw","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeIn","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言由於看到今年海狗大大在 COSCUP 上的一篇議程 aka 老鼠會抓下線文宣 (x又再次看到了 ASN 這個名詞於是決定去研究看看這是什麼東西">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASN 初體驗 Part 1">
+<meta property="og:url" content="https://blog.chesskuo.tw/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/index.html">
+<meta property="og:site_name" content="chess.blog">
+<meta property="og:description" content="前言由於看到今年海狗大大在 COSCUP 上的一篇議程 aka 老鼠會抓下線文宣 (x又再次看到了 ASN 這個名詞於是決定去研究看看這是什麼東西">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.apnic.net/wp-content/uploads/policy-environment_obsolete/images/ipv4_hierarchy.png">
+<meta property="og:image" content="https://i.imgur.com/nBZCdz1.png">
+<meta property="og:image" content="https://i.imgur.com/9LWtTFm.png">
+<meta property="og:image" content="https://i.imgur.com/E3qsnDD.png">
+<meta property="article:published_time" content="2021-08-08T08:09:38.000Z">
+<meta property="article:modified_time" content="2024-11-27T08:29:56.685Z">
+<meta property="article:author" content="Chess Kuo">
+<meta property="article:tag" content="network">
+<meta property="article:tag" content="ASN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.apnic.net/wp-content/uploads/policy-environment_obsolete/images/ipv4_hierarchy.png">
+
+
+<link rel="canonical" href="https://blog.chesskuo.tw/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.chesskuo.tw/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/","path":"posts/2021-08-08-ASN-初體驗-Part-1/","title":"ASN 初體驗 Part 1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ASN 初體驗 Part 1 | chess.blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20Z1943VPP"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-20Z1943VPP","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">chess.blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E5%BE%97-ASN"><span class="nav-text">取得 ASN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-ASN"><span class="nav-text">What is ASN?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B3%E8%AB%8B-ASN"><span class="nav-text">申請 ASN</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chess Kuo"
+      src="/images/icon/chess.svg">
+  <p class="site-author-name" itemprop="name">Chess Kuo</p>
+  <div class="site-description" itemprop="description">step by step</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chesskuo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chesskuo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:owo@chesskuo.tw" title="E-Mail → mailto:owo@chesskuo.tw" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ASN 初體驗 Part 1 | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ASN 初體驗 Part 1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-08 16:09:38" itemprop="dateCreated datePublished" datetime="2021-08-08T16:09:38+08:00">2021-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-08-08-ASN-初體驗-Part-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由於看到今年<a target="_blank" rel="noopener" href="https://seadog007.me/">海狗大大</a>在 COSCUP 上的一篇<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1N9e5VAglOsm2XRSIUTjk_5HBqrvjarjnUBvLVcsXmf0/edit?usp=sharing">議程</a> aka 老鼠會抓下線文宣 (x<br>又再次看到了 ASN 這個名詞<br>於是決定去研究看看這是什麼東西</p>
+<span id="more"></span>
+
+<p>第一次是在兩年前某位朋友的自介中看到這個名詞<br>去 google 了一陣子後發現好像是網路架構中很 Infra 的部分<br>查了一堆相關知識 但實在太抽象了 很難想像究竟是一個什麼樣的概念<br>那些內容對於當時的我很難去實作一個練習<br>也就姑且放置了</p>
+<p>如今又偶然間看到這篇議程<br>我想應該是在提醒我 是時候去弄清楚了XD</p>
+<p>接下來文章中會記錄一些我剛學到的概念、設定流程<br>當然都非常的基礎<br>甚至可以說是沒有任何進階的保護 (因為我還沒理解到那麼多…<br>所以請大老拍小力一點 會痛 QQ</p>
+<h1 id="取得-ASN"><a href="#取得-ASN" class="headerlink" title="取得 ASN"></a>取得 ASN</h1><p>這個應該是我認為最麻煩的部分<br>但首先我們必須先知道 ASN (Autonomous System Number) 是什麼東西</p>
+<h2 id="What-is-ASN"><a href="#What-is-ASN" class="headerlink" title="What is ASN?"></a>What is ASN?</h2><p>AS 是 “網際網路” 中溝通的最小單位<br>而 ASN 則是表示該 AS 的唯一 ID<br>這句話可能很詭異 網路中最小單位不是應該是電腦 (IP) 才對嗎?<br>其實這可以透過一般家中的路由器來理解</p>
+<p>你家中的 IP 該如何走<br>只要到你的 Gateway 自然就知道要出去還是內網<br>這是非常好理解的二選一</p>
+<p>但兩台路由器的情形呢<br>你必須告訴第一台路由器哪些 IP 要送往 第二台<br>同理第二台也是要設定哪些 IP 該送去第一台<br>這就是所謂的 Route Table</p>
+<p>由此可見當你越多段 IP 就需要越多路由表去紀錄這些事情<br>上面說的情形還只限於非常少數的路由器之間<br>還可以手動去設定靜態路由<br>我們繼續將範圍放大到全世界 有屬不清的路由器</p>
+<p>那 AS 就是管理著多段 IP 該如何送<br>其中可能包含多個路由器的一個群集<br>並且同時往上發布給更上位的路由器說哪些該送到自己這<br>亦或是取得其他路由器發給你的路由表記起來<br>這種互相交換路由表的行為會透過 BGP (Border Gateway Protocol) 來溝通</p>
+<p>所以說真正在世界網路上互相溝通的單位是 AS<br>他們彼此交換路由表<br>才能讓世界中任何一個 IP 知道該往哪送</p>
+<h2 id="申請-ASN"><a href="#申請-ASN" class="headerlink" title="申請 ASN"></a>申請 ASN</h2><p>現在世界上管理網路的單位是一個樹狀結構</p>
+<p>我們借用一下 APNIC 的圖</p>
+<p><img src="https://www.apnic.net/wp-content/uploads/policy-environment_obsolete/images/ipv4_hierarchy.png"></p>
+<p>簡單的由上往下區分一下級別</p>
+<ul>
+<li>世界總管 (灰)<ul>
+<li>IANA</li>
+</ul>
+</li>
+<li>五大洲級 (橘)<ul>
+<li>AfriNIC</li>
+<li>ARIN</li>
+<li>APNIC</li>
+<li>LACNIC</li>
+<li>RIPE NCC</li>
+</ul>
+</li>
+<li>國家級 (綠)<ul>
+<li>ex. TWNIC</li>
+</ul>
+</li>
+<li>地區級 (水藍)</li>
+<li>業者 (紫)</li>
+<li>個人 (深藍)</li>
+</ul>
+<p>看完了分級後<br>我們這次申請主要以 <a target="_blank" rel="noopener" href="https://ripe.net/">RIPE NCC</a> 為主<br>因為他有對 LIR 贊助機制<br>使一般人可以用比較負荷的了的情況取得 ASN<br>不然爆幹貴 文件還很難被審過 QQ</p>
+<p>Google 一下應該就會找到一堆 RIPE LIR 有提供代辦服務<br>或是可以來這個網站看人家整理好的表 <a target="_blank" rel="noopener" href="http://bgp.services/">http://bgp.services/</a></p>
+<p>找好 LIR 後<br>我們需要先了解申請的幾個大步驟<br>這些資料都是即將提交給 LIR 的</p>
+<ol>
+<li>去 RIPE NCC 建立幾個關於自己資訊的 Object (maintainer, role, organization)</li>
+<li>兩個可以與你對接的 ASN and 對方的 email</li>
+<li>於歐洲的設備證明 (ex. 發票)</li>
+<li>申請 ASN 的目的</li>
+<li>給 LIR 贊助費</li>
+<li>與 LIR 的合約 (這個通常在你將資料提交給 LIR 並確認無誤後，對方會簽好給你簽，然後寄回去)</li>
+</ol>
+<p>首先<br>我們就先去建立屬於自己的 Object 吧<br>這些資料也就是當我們在 <code>whois</code> 時所噴給你那些資訊</p>
+<p>註冊好 RIPE 的帳號後<br>第一步就先到 <code>Create an Object</code> 建立 <code>role and maintainer pair</code></p>
+<p><img src="https://i.imgur.com/nBZCdz1.png"></p>
+<ul>
+<li>mntner<br>  這欄位非常重要 是這個 Object 的唯一 ID<br>  之後所建立的其他 Object 都必須關連到這個 ID 你才有權限更動</li>
+<li>role<br>  填你自己的名字就好</li>
+<li>address<br>  地址 不多說</li>
+<li>email<br>  屬於該 role 的 email<br>  請填一定能收到信的信箱 未來所有驗證相關都會用到</li>
+</ul>
+<p>新增完成後你就會看到 mntner 的 ID 以及 role 的 ID<br>這些資訊日後都可以更改<br>所以填歪填錯也不用怕</p>
+<p>接著我們用剛剛得到的 ID 先去看一下 role 選擇 Update<br>然後在 email 旁邊的 <code>+</code> 按下去 新增一個 <code>abuse-mailbox</code></p>
+<p><img src="https://i.imgur.com/9LWtTFm.png"></p>
+<p>填寫好之候就可以儲存</p>
+<p>接著我們要新增一個 organization 的物件</p>
+<p><img src="https://i.imgur.com/E3qsnDD.png"></p>
+<p>這邊要注意</p>
+<ul>
+<li><p>abuse-c<br>  這個就填剛剛 role 的 ID</p>
+</li>
+<li><p>mnt-ref<br>  這個通常會填寫 LIR 的 mntner ID 以方便追蹤下游<br>  但現在還沒有拿到就先填自己的就好</p>
+</li>
+</ul>
+<p>以上到這裡 RIPE 物件的部分就準備完成了<br>你可以先把資料都丟去給 LIR 確認一遍<br>如果無誤對方就會 (通常) 要你轉一筆註冊費給他<br>然後給你一份同意書簽名寄回<br>接著就是等待 RIPE 把 ASN 分發下來囉</p>
+<p>喔對了 通常跟 LIR 申請<br>他都會發一段 IPv6 的給你</p>
+<p>下一篇 Part 2 會告訴各位如何將自己申請到的 IP 以及 ASN 廣播到全世界<br>不過先讓我喘一下 腦袋要燒了 (x</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/network/" rel="tag"># network</a>
+              <a href="/tags/ASN/" rel="tag"># ASN</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/" rel="prev" title="AIS3-2021 Pre-exam Writeups">
+                  <i class="fa fa-angle-left"></i> AIS3-2021 Pre-exam Writeups
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2021-08-17-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-2/" rel="next" title="ASN 初體驗 Part 2">
+                  ASN 初體驗 Part 2 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chess Kuo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"blog-chesskuo-tw","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/chess.256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/chess.32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/chess.16.png">
+  <link rel="mask-icon" href="/images/icon/chess.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.chesskuo.tw","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeIn","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="因為我的手機是一台古董 Pixel 5不能用最新最潮的 KernelSU再加上遇到幾個 module 過舊或是更新導致一瞬間原本能動的銀行 APP 全都失效因此花了點時間將 root 環境重新隱藏起來 所以這篇就是一個順手記錄與各大金融 APP 拼命的結論然後再順便從頭教學一下怎麼 root 自己的手機 XD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 14 Root 生命鬥士">
+<meta property="og:url" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/index.html">
+<meta property="og:site_name" content="chess.blog">
+<meta property="og:description" content="因為我的手機是一台古董 Pixel 5不能用最新最潮的 KernelSU再加上遇到幾個 module 過舊或是更新導致一瞬間原本能動的銀行 APP 全都失效因此花了點時間將 root 環境重新隱藏起來 所以這篇就是一個順手記錄與各大金融 APP 拼命的結論然後再順便從頭教學一下怎麼 root 自己的手機 XD">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/1.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/2.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/3.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/4.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/5.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/6.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/7.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/8.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/9.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/10.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/11.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/12.png">
+<meta property="og:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/13.png">
+<meta property="article:published_time" content="2024-09-16T10:18:34.000Z">
+<meta property="article:modified_time" content="2024-11-27T08:29:56.692Z">
+<meta property="article:author" content="Chess Kuo">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/1.png">
+
+
+<link rel="canonical" href="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/","path":"posts/2024-09-16-Android-14-Root-生命鬥士/","title":"Android 14 Root 生命鬥士"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Android 14 Root 生命鬥士 | chess.blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20Z1943VPP"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-20Z1943VPP","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">chess.blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD"><span class="nav-text">前置作業</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-text">安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Magisk"><span class="nav-text">安裝 Magisk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E4%B8%80%E5%A0%86%E6%A8%A1%E7%B5%84"><span class="nav-text">安裝一堆模組</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-root-%E9%9A%B1%E8%97%8F%E8%BA%B2%E9%81%BF%E6%AA%A2%E6%9F%A5"><span class="nav-text">設定 root 隱藏躲避檢查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%8F%E9%81%BF-app-list-%E6%8E%83%E6%8F%8F"><span class="nav-text">規避 app list 掃描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6%E9%9A%B1%E8%97%8F%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="nav-text">測試隱藏是否生效</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chess Kuo"
+      src="/images/icon/chess.svg">
+  <p class="site-author-name" itemprop="name">Chess Kuo</p>
+  <div class="site-description" itemprop="description">step by step</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chesskuo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chesskuo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:owo@chesskuo.tw" title="E-Mail → mailto:owo@chesskuo.tw" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Android 14 Root 生命鬥士 | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 14 Root 生命鬥士
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-16 18:18:34" itemprop="dateCreated datePublished" datetime="2024-09-16T18:18:34+08:00">2024-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-09-16-Android-14-Root-生命鬥士/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>因為我的手機是一台古董 Pixel 5<br>不能用最新最潮的 KernelSU<br>再加上遇到幾個 module 過舊或是更新導致一瞬間原本能動的銀行 APP 全都失效<br>因此花了點時間將 root 環境重新隱藏起來</p>
+<p>所以這篇就是一個順手記錄與各大金融 APP 拼命的結論<br>然後再順便從頭教學一下怎麼 root 自己的手機 XD</p>
+<span id="more"></span>
+
+<p>其實前面說我的系統 kernel 過舊不能用 KernelSU 也是不太對<br>只是我一直 build 不出可以正常開機的 kernel<br>以及 KernelSU 也宣佈從 <code>v0.9.5</code> 後不再支援通用內核以外的舊版或客製化內核<br>因此權衡一下還是繼續使用 Magisk 好了 XD</p>
+<p>之前我繞 root 的環境挺單純的<br>就 Kitsune Magisk 26.4 + PlayIntegrityFix 而已<br>不得不說 Kitsune 原本就蠻強了<br>混淆了 package name 後<br>確實就已經讓許多金融 APP 抓不到了</p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>但幾週前<br>我更新了 Android 中的 Google Play 系統更新 (不是 Google Play 商店的更新)<br>導致 Zygisk 跟 LSPosed 19.2 會相衝<br>而 LSPosed 19.2 也是一個很久沒更新的東西了</p>
+<p>以及我的 LINE Pay 突然被查殺<br>推測可能是 LINE 偷掃了 app list</p>
+<p>這時候其實我還沒用 Hide My Applist<br>我的 LSPosed 是去做別的事情用的<br>但現在 LSPosed 也葛屁了</p>
+<p>接著又加上 Kitsune 的 release 太久沒更新<br>還有之前用了 Kitsune beta 有爆炸的經驗<br>剛好又看到 Magisk 有最新的 beta 可以用<br>於是就想說來個大換血好了 XD</p>
+<p>總之完全是種種因素疊加<br>導致我除了想大換血以外<br>也想更結構性的去理解每個元件之間的搭配</p>
+<p>那接著就直接開始動手操作的環節啦 ~</p>
+<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p>在安裝前<br>我們要先準備兩樣東西</p>
+<ol>
+<li>adb 環境</li>
+<li>你手機系統的 boot.img</li>
+<li>解鎖 bootloader</li>
+</ol>
+<ul>
+<li>第一點需要手動配置一下系統環境</li>
+</ul>
+<blockquote>
+<p>如果你不想要安裝又肥又大的 Android Studio 的話</p>
+</blockquote>
+<p>首先到 <a target="_blank" rel="noopener" href="https://developer.android.com/tools/releases/platform-tools">這裏</a> 來下載 <code>platform-tools</code><br>然後配置進你的環境變數會比較方便<br>當然你也可以直接進資料夾做使用</p>
+<ul>
+<li>第二點<br>各個廠商自己提供的方式都不一樣<br>我就以 Pixel 5 來舉例<br>Google 會將 Pixel 系列的系統映像檔或是 OTA 升級包統一都放在 <a target="_blank" rel="noopener" href="https://developers.google.com/android/images">https://developers.google.com/android/images</a> 當中</li>
+</ul>
+<p>然後我們需要檢查一下手機目前的系統版本<br>可以至 設定 -&gt; 關於手機 -&gt; Android 版本 -&gt; 版本號碼 中確認</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/1.png" alt="image"></p>
+<p>以我的為例<br>我的版本號碼為 <code>UP1A.231105.001.B2</code></p>
+<p>因此找到 Pixel 5 欄位的相同版本</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/2.png" alt="image"></p>
+<p>然後點右邊的下載即可拿到官方映像檔</p>
+<p>下載完成後要解壓縮<br>再將裡面的 <code>image-xxxx.zip</code> 解壓縮<br>會得到 <code>boot.img</code></p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/3.png" alt="image"></p>
+<p>要將這個先傳進手機裡</p>
+<ul>
+<li>第三點</li>
+</ul>
+<p>這個根據每家廠商不同<br>可能要再請讀者自行上網找資料了<br>只是這步驟也是最重要的<br>因為沒有解鎖的話<br>是不能刷任何其他韌體進去的</p>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>這邊內容除了安裝過程外<br>還會一邊穿插過程中遇到的套件間的問題<br>因此整個過程會有點長 XD</p>
+<h3 id="安裝-Magisk"><a href="#安裝-Magisk" class="headerlink" title="安裝 Magisk"></a>安裝 Magisk</h3><p>首先當然就是要有請 root 界中的經典面具上場啦<br>我們選用最新的 beta 版本 <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases/tag/canary-27007">27007</a><br>下載 github release 內的 <code>app-release.apk</code> 安裝</p>
+<p>接著就按照 <a target="_blank" rel="noopener" href="https://topjohnwu.github.io/Magisk/install.html">官方文件</a> 找尋適合你手機的方式將 magisk 安裝好<br>因為每家廠商的手機對於 root 該刷的位置都有不同是適應方式<br>這邊我舊粗淺講一下我的步驟 (應該也是所有 Pixel 系列的步驟)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb reboot fastboot</span><br><span class="line">fastboot flash boot magisk-xxxx.img</span><br><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+
+<p>刷好新的 boot.img 後<br>重啟進入 magisk 應該就會看到上面那區的 magisk 寫了已安裝的版本而不是 <code>N/A</code> 了</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/4.png" alt="image"></p>
+<h3 id="安裝一堆模組"><a href="#安裝一堆模組" class="headerlink" title="安裝一堆模組"></a>安裝一堆模組</h3><p>確定 magisk 成功安裝後<br>下一步就是要把重要的模組一一安裝進去<br>總共會需要以下幾個 magisk 模組</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix/releases/tag/v17.5">PlayIntegrityFix</a> (通常簡稱 PIF)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ZygiskNext/releases/tag/v1.1.0">Zygisk-Next</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed.github.io/releases/tag/shamiko-357">Shamiko</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/tag/v1.9.3_mod">LSPosed MOD</a></li>
+</ul>
+<p>這邊要注意絕對不要啟用 magisk 設定中自帶的 zygisk<br>不確定是不是原本自帶的有問題導致 root 會一直被抓到<br>直接使用 zygisk-next 來替換掉才可以正常隱藏</p>
+<p>另外就是不要使用原本的 LSPosed 1.9.2<br>因為那個版本已經非常久沒更新<br>會導致在最新的 Google Play 系統更新 202408 的版本會出現問題<br>導致 Zygisk 會無法啟動<br>使用這個 MOD 版可以修正此問題</p>
+<p>至於 PIF 就是為了能過 safetynet 檢查<br>讓它至少是 BASIC 狀態來規避一些檢查</p>
+<p>shamiko 則是基於 zygisk 的模組<br>可以隱藏 Zygisk, Zygisk 模組以及 Magisk root 的一個閉源模組<br>使用時不可以開啟 Magisk 的強制黑名單</p>
+<p>安裝順序推薦 Zygisk-Next 優先<br>然後才安裝其他基於 Zygisk 的模組 (例如 Shamiko 以及 LSPosed)<br>而 PIF 要先裝或後裝都沒差</p>
+<p>最後則是在 LSPosed 模組安裝完成後<br>添加一個叫做 <a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/Hide-My-Applist/releases/tag/V3.2">Hide My Applist</a> 的應用程式 (通常簡稱 HMA)</p>
+<h3 id="設定-root-隱藏躲避檢查"><a href="#設定-root-隱藏躲避檢查" class="headerlink" title="設定 root 隱藏躲避檢查"></a>設定 root 隱藏躲避檢查</h3><p>在模組都安裝完畢後<br>要開始進行 root 隱藏</p>
+<p>首先要藏起來的是 magisk app 本身<br>這個從 app 的設定中<br>有一個 “隱藏 Magisk” 的選項<br>選擇後可以自己輸入想要的 app name<br>我是為了怕找不到<br>所以用一點變形的字串 <code>Mag1sk</code> 來方便辨識<br>但又不要以原本的 magisk 來命名</p>
+<p>轉換結束後<br>應該會發現 app 清單中多了一個初始 android 娃娃頭像的 app</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/5.png" alt="image"></p>
+<p>而這個 app 的 package name 則是一組亂數產生的包名<br>因此可以繞過大多數對於 app list 進行黑名單比對的檢查方法</p>
+<p>再來要進入 “設定黑名單” 當中<br>將你要用到的 APP 全部勾起來<br>來使 MagsikHide 生效</p>
+<p>通常到這步驟<br>多數的銀行 APP 應該已經可以穩定通過了</p>
+<h3 id="規避-app-list-掃描"><a href="#規避-app-list-掃描" class="headerlink" title="規避 app list 掃描"></a>規避 app list 掃描</h3><p>最後要隱藏的部分則是某些 app 會掃描 app list 的行為<br>我們要透過 HMA 來 hook 這些掃描行為<br>進而達到掃不到特定跟 root 有關的 app</p>
+<p>先點開上面通知欄中的 LSPosed 管理介面</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/6.png" alt="image"></p>
+<p>然後在第二項的模組清單<br>將 HMA 啟用</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/7.png" alt="image"></p>
+<p>接著回到 app 清單中找到它點開開始設定</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/8.png" alt="image"></p>
+<p>再來點開模板管理<br>選擇新增一個黑名單模板<br>然後填一個你喜歡的名字</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/9.png" alt="image"></p>
+<p>這邊有兩個選項分別為</p>
+<ul>
+<li>對應用程式執行攔截</li>
+<li>對應用程式啟用</li>
+</ul>
+<p>這邊中文挺怪的<br>總之可以理解為</p>
+<ul>
+<li>要把哪些 app 藏起來不被掃到</li>
+<li>要讓哪個 app 看不到上面藏起來的 app (有點繞口 XD)</li>
+</ul>
+<p>總之只要先調上面那個就好</p>
+<p>這裡我們主要要藏兩個東西</p>
+<ol>
+<li>HMA app 本身</li>
+<li>Magisk 混淆後的 app</li>
+</ol>
+<p>勾起來後<br>記得一直上一步退回 HMA 主畫面<br>不然有時候他會沒儲到</p>
+<p>再來就是進入 “管理應用程式”<br>然後找到你要的 app (這邊我範例使用 LINE)</p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/10.png" alt="image"></p>
+<p>點選 “啟用隱藏”<br>然後記得在下面的模板設定使用前面新增好的模板<br>然後一樣一直上一頁來讓他觸發儲存<br>接著就可以重新開機<br>來確認一下是否能成功進入 LINE Pay 做使用囉</p>
+<h3 id="測試隱藏是否生效"><a href="#測試隱藏是否生效" class="headerlink" title="測試隱藏是否生效"></a>測試隱藏是否生效</h3><p>如果前面的步驟都有做正確<br>基本上到這裡用到的技巧幾乎能躲過所有的金融 APP 檢測了</p>
+<p>如果還是沒有成功<br>這裡推薦幾個 APP 可以讓你檢查自己的環境是否有設定正確<br>分別是</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/apkunpacker/MagiskDetection/blob/main/Momo-v4.4.1.apk">Momo</a> (原始版本存在某一個 tg 頻道裡)</p>
+<ul>
+<li>檢查系統 root 環境是否有藏好</li>
+<li>跟 magisk 有關的設定</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ApplistDetector/releases">Applist Detector</a></p>
+<ul>
+<li>檢查你環境中有沒有什麼奇怪的 app 或是 api 跟 root 有關</li>
+<li>通常跟你的 HMA 有沒有藏好有關</li>
+</ul>
+</li>
+<li><p>YASNAC (Play 商店找得到)</p>
+<ul>
+<li>檢查你的 safetynet 是否有 pass</li>
+<li>跟 PIF 有關</li>
+</ul>
+</li>
+</ul>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/11.png" alt="image"></p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/12.png" alt="image"></p>
+<p><img src="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/13.png" alt="image"></p>
+<p>目前我手頭上有在使用的銀行跟行動支付工具按照上面的方式都是可以繞過檢查<br>至於更多的其他 APP 能不能繞過就不確定了<br>或是可能哪天一更新又全部被查殺也是有機會 XD<br>因為檢測手法千奇百怪<br>只能等真的遇到才能想辦法找出程式的判斷邏輯去應</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2024-09-15-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%B7%9F%E5%B0%8F%E7%83%8F%E9%BE%9C%E8%AA%AA%E5%86%8D%E8%A6%8B/" rel="prev" title="第一次跟小烏龜說再見">
+                  <i class="fa fa-angle-left"></i> 第一次跟小烏龜說再見
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2024-11-26-System-Recovery-Windows/" rel="next" title="System Recovery - Windows">
+                  System Recovery - Windows <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chess Kuo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"blog-chesskuo-tw","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

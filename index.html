@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/chess.256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/chess.32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/chess.16.png">
+  <link rel="mask-icon" href="/images/icon/chess.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.chesskuo.tw","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeIn","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="step by step">
+<meta property="og:type" content="website">
+<meta property="og:title" content="chess.blog">
+<meta property="og:url" content="https://blog.chesskuo.tw/index.html">
+<meta property="og:site_name" content="chess.blog">
+<meta property="og:description" content="step by step">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Chess Kuo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.chesskuo.tw/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>chess.blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20Z1943VPP"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-20Z1943VPP","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">chess.blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chess Kuo"
+      src="/images/icon/chess.svg">
+  <p class="site-author-name" itemprop="name">Chess Kuo</p>
+  <div class="site-description" itemprop="description">step by step</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chesskuo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chesskuo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:owo@chesskuo.tw" title="E-Mail → mailto:owo@chesskuo.tw" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-11-27-System-Recovery-Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2024-11-27-System-Recovery-Linux/" class="post-title-link" itemprop="url">System Recovery - Linux</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-27 16:33:40 / Modified: 16:42:27" itemprop="dateCreated datePublished" datetime="2024-11-27T16:33:40+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-11-27-System-Recovery-Linux/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-11-27-System-Recovery-Linux/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>剛好最近無聊在研究如果碰的到實體機器<br>但卻沒有帳密 或是忘記帳密時<br>有沒有什麼手段可以進去系統改掉密碼</p>
+<p>起初是研究 windows 該怎麼辦到<br>後來想說連 linux 一起研究<br>於是就產生了這篇</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2024-11-27-System-Recovery-Linux/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-11-26-System-Recovery-Windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2024-11-26-System-Recovery-Windows/" class="post-title-link" itemprop="url">System Recovery - Windows</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-26 16:44:29" itemprop="dateCreated datePublished" datetime="2024-11-26T16:44:29+08:00">2024-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:54:27" itemprop="dateModified" datetime="2024-11-27T16:54:27+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-11-26-System-Recovery-Windows/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-11-26-System-Recovery-Windows/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一切的起因就是某天晚上一個朋友說他的 windows 忘記密碼<br>然後錯太多次被鎖起來<br>然後他的電腦有啟用 bitlocker</p>
+<p>本來想找公司 infra 幫忙解<br>但他說好像印象中以前 infra 是用 WinPE 解的樣子<br>結果 bitlocker 的 key 就變了</p>
+<p>但我想想不太合理<br>改密碼是 bitlocker 解鎖硬碟後對檔案系統的行為<br>怎麼會改個密碼連 bitlocker key 都變了<br>於是就花了點時間研究到底 windows 忘記密碼的還原流程到底是如何</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2024-11-26-System-Recovery-Windows/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/" class="post-title-link" itemprop="url">Android 14 Root 生命鬥士</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-16 18:18:34" itemprop="dateCreated datePublished" datetime="2024-09-16T18:18:34+08:00">2024-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-09-16-Android-14-Root-生命鬥士/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>因為我的手機是一台古董 Pixel 5<br>不能用最新最潮的 KernelSU<br>再加上遇到幾個 module 過舊或是更新導致一瞬間原本能動的銀行 APP 全都失效<br>因此花了點時間將 root 環境重新隱藏起來</p>
+<p>所以這篇就是一個順手記錄與各大金融 APP 拼命的結論<br>然後再順便從頭教學一下怎麼 root 自己的手機 XD</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2024-09-16-Android-14-Root-%E7%94%9F%E5%91%BD%E9%AC%A5%E5%A3%AB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2024-09-15-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%B7%9F%E5%B0%8F%E7%83%8F%E9%BE%9C%E8%AA%AA%E5%86%8D%E8%A6%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2024-09-15-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%B7%9F%E5%B0%8F%E7%83%8F%E9%BE%9C%E8%AA%AA%E5%86%8D%E8%A6%8B/" class="post-title-link" itemprop="url">第一次跟小烏龜說再見</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-15 22:58:17" itemprop="dateCreated datePublished" datetime="2024-09-15T22:58:17+08:00">2024-09-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2024-09-15-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%B7%9F%E5%B0%8F%E7%83%8F%E9%BE%9C%E8%AA%AA%E5%86%8D%E8%A6%8B/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2024-09-15-第一次跟小烏龜說再見/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>上班後終於有閒錢可以開始把自己心目中的設備一步步堆起來了<br>這次除了增添了 Mikrotik RB5009UG 以外<br>還順便買了一個 PON Stick (俗稱光貓棒) 準備一併替換掉中華電信的小烏龜</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2024-09-15-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%B7%9F%E5%B0%8F%E7%83%8F%E9%BE%9C%E8%AA%AA%E5%86%8D%E8%A6%8B/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2022-03-06-%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-IPv6-%E6%8E%A5%E5%9B%9E%E5%AE%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2022-03-06-%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-IPv6-%E6%8E%A5%E5%9B%9E%E5%AE%B6/" class="post-title-link" itemprop="url">把自己的 IPv6 接回家</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-06 22:04:13" itemprop="dateCreated datePublished" datetime="2022-03-06T22:04:13+08:00">2022-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2022-03-06-%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-IPv6-%E6%8E%A5%E5%9B%9E%E5%AE%B6/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2022-03-06-把自己的-IPv6-接回家/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>關於這是一個被我閒置到忘記的一件事…</p>
+<p>從申請到 ASN 以及拿到自己的一段 &#x2F;44 IPv6 後過了半年多了<br>被一堆垃圾事纏身到完全忘記這件事<br>兩星期前才突然想到然後把它搞定wwwww</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2022-03-06-%E6%8A%8A%E8%87%AA%E5%B7%B1%E7%9A%84-IPv6-%E6%8E%A5%E5%9B%9E%E5%AE%B6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-12-05-HITCON-2021-DEVCORE-Wargame-Writeups/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2021-12-05-HITCON-2021-DEVCORE-Wargame-Writeups/" class="post-title-link" itemprop="url">HITCON 2021 - DEVCORE Wargame Writeups</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-05 13:11:59" itemprop="dateCreated datePublished" datetime="2021-12-05T13:11:59+08:00">2021-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-12-05-HITCON-2021-DEVCORE-Wargame-Writeups/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-12-05-HITCON-2021-DEVCORE-Wargame-Writeups/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>官方 src : <a target="_blank" rel="noopener" href="https://github.com/DEVCORE-Wargame/HITCON-2021">https://github.com/DEVCORE-Wargame/HITCON-2021</a></p>
+<p>沒想到自己也能有把 DEVCORE 題目破台的一天 痛哭流涕 QQ</p>
+<p><img src="https://i.imgur.com/QEnOzak.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2021-12-05-HITCON-2021-DEVCORE-Wargame-Writeups/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-08-23-DN42-%E5%B9%B3%E6%B0%91%E5%8C%96%E7%9A%84-ASN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2021-08-23-DN42-%E5%B9%B3%E6%B0%91%E5%8C%96%E7%9A%84-ASN/" class="post-title-link" itemprop="url">DN42 - 平民化的 ASN</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-23 13:59:41" itemprop="dateCreated datePublished" datetime="2021-08-23T13:59:41+08:00">2021-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-08-23-DN42-%E5%B9%B3%E6%B0%91%E5%8C%96%E7%9A%84-ASN/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-08-23-DN42-平民化的-ASN/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>其實應該先寫這篇才寫現實網路世界中的 ASN 教學才對 wwww<br>不過我也是先申請了現實的 ASN 後<br>才來申請這個東西的 XD</p>
+<p>DN42 全名叫做 Deserialized Network 42 (去中心化網路 42)<br>其透過 Private IP 加上 VPN 來模擬現實的 ASN 系統<br>這是它們的<a target="_blank" rel="noopener" href="https://dn42.us/">官網</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2021-08-23-DN42-%E5%B9%B3%E6%B0%91%E5%8C%96%E7%9A%84-ASN/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-08-17-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2021-08-17-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-2/" class="post-title-link" itemprop="url">ASN 初體驗 Part 2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-17 14:30:53" itemprop="dateCreated datePublished" datetime="2021-08-17T14:30:53+08:00">2021-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-08-17-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-08-17-ASN-初體驗-Part-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 ASN 與 IP 發下來後<br>我們接著需要將擁有的 IP 廣播出去<br>讓世界知道如果要連過來這些 IP 該怎麼走</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2021-08-17-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/" class="post-title-link" itemprop="url">ASN 初體驗 Part 1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-08 16:09:38" itemprop="dateCreated datePublished" datetime="2021-08-08T16:09:38+08:00">2021-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-08-08-ASN-初體驗-Part-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由於看到今年<a target="_blank" rel="noopener" href="https://seadog007.me/">海狗大大</a>在 COSCUP 上的一篇<a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1N9e5VAglOsm2XRSIUTjk_5HBqrvjarjnUBvLVcsXmf0/edit?usp=sharing">議程</a> aka 老鼠會抓下線文宣 (x<br>又再次看到了 ASN 這個名詞<br>於是決定去研究看看這是什麼東西</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2021-08-08-ASN-%E5%88%9D%E9%AB%94%E9%A9%97-Part-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/" class="post-title-link" itemprop="url">AIS3-2021 Pre-exam Writeups</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-31 14:55:39" itemprop="dateCreated datePublished" datetime="2021-07-31T14:55:39+08:00">2021-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前測終於衝上 1 開頭了<br><img src="https://i.imgur.com/s41YkVC.png"></p>
+<p>還三生有幸拿到首殺<br><img src="https://i.imgur.com/fhpHqbU.png"></p>
+<p>學了那麼久感覺自己終於有點進步 (?</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2021-07-31-AIS3-2021-Pre-exam-Writeups/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chess Kuo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"blog-chesskuo-tw","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

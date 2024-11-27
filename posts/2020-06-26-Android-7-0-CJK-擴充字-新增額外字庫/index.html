@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/chess.256.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/chess.32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/chess.16.png">
+  <link rel="mask-icon" href="/images/icon/chess.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.chesskuo.tw","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeIn","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Prologue最近剛好有用手機看書的需求再加上看的都是一些很古老的書 (ex. 山海經)自然就會出現許多稀難字有興趣的朋友可以先到 這裡 看一下自己是不有一堆口 XD其實就連電腦應該也不少人滿滿的口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 7.0+ CJK 擴充字 新增額外字庫">
+<meta property="og:url" content="https://blog.chesskuo.tw/posts/2020-06-26-Android-7-0-CJK-%E6%93%B4%E5%85%85%E5%AD%97-%E6%96%B0%E5%A2%9E%E9%A1%8D%E5%A4%96%E5%AD%97%E5%BA%AB/index.html">
+<meta property="og:site_name" content="chess.blog">
+<meta property="og:description" content="Prologue最近剛好有用手機看書的需求再加上看的都是一些很古老的書 (ex. 山海經)自然就會出現許多稀難字有興趣的朋友可以先到 這裡 看一下自己是不有一堆口 XD其實就連電腦應該也不少人滿滿的口">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/RwRoJ8V.jpg">
+<meta property="og:image" content="https://i.imgur.com/lkwvFo4.jpg">
+<meta property="article:published_time" content="2020-06-26T12:11:47.000Z">
+<meta property="article:modified_time" content="2024-11-27T08:29:56.685Z">
+<meta property="article:author" content="Chess Kuo">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/RwRoJ8V.jpg">
+
+
+<link rel="canonical" href="https://blog.chesskuo.tw/posts/2020-06-26-Android-7-0-CJK-%E6%93%B4%E5%85%85%E5%AD%97-%E6%96%B0%E5%A2%9E%E9%A1%8D%E5%A4%96%E5%AD%97%E5%BA%AB/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.chesskuo.tw/posts/2020-06-26-Android-7-0-CJK-%E6%93%B4%E5%85%85%E5%AD%97-%E6%96%B0%E5%A2%9E%E9%A1%8D%E5%A4%96%E5%AD%97%E5%BA%AB/","path":"posts/2020-06-26-Android-7-0-CJK-擴充字-新增額外字庫/","title":"Android 7.0+ CJK 擴充字 新增額外字庫"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Android 7.0+ CJK 擴充字 新增額外字庫 | chess.blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-20Z1943VPP"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-20Z1943VPP","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">chess.blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prologue"><span class="nav-text">Prologue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notice-Tools"><span class="nav-text">Notice &amp; Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tutorial"><span class="nav-text">Tutorial</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Epilogue"><span class="nav-text">Epilogue</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chess Kuo"
+      src="/images/icon/chess.svg">
+  <p class="site-author-name" itemprop="name">Chess Kuo</p>
+  <div class="site-description" itemprop="description">step by step</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chesskuo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chesskuo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:owo@chesskuo.tw" title="E-Mail → mailto:owo@chesskuo.tw" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.chesskuo.tw/posts/2020-06-26-Android-7-0-CJK-%E6%93%B4%E5%85%85%E5%AD%97-%E6%96%B0%E5%A2%9E%E9%A1%8D%E5%A4%96%E5%AD%97%E5%BA%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/icon/chess.svg">
+      <meta itemprop="name" content="Chess Kuo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chess.blog">
+      <meta itemprop="description" content="step by step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Android 7.0+ CJK 擴充字 新增額外字庫 | chess.blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 7.0+ CJK 擴充字 新增額外字庫
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-26 20:11:47" itemprop="dateCreated datePublished" datetime="2020-06-26T20:11:47+08:00">2020-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-27 16:29:56" itemprop="dateModified" datetime="2024-11-27T16:29:56+08:00">2024-11-27</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/posts/2020-06-26-Android-7-0-CJK-%E6%93%B4%E5%85%85%E5%AD%97-%E6%96%B0%E5%A2%9E%E9%A1%8D%E5%A4%96%E5%AD%97%E5%BA%AB/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/2020-06-26-Android-7-0-CJK-擴充字-新增額外字庫/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h1><p>最近剛好有用手機看書的需求<br>再加上看的都是一些很古老的書 (ex. 山海經)<br>自然就會出現許多稀難字<br>有興趣的朋友可以先到 <a target="_blank" rel="noopener" href="https://ctext.org/font-test-page/zh">這裡</a> 看一下自己是不有一堆口 XD<br>其實就連電腦應該也不少人滿滿的口</p>
+<span id="more"></span>
+
+<img src="https://i.imgur.com/RwRoJ8V.jpg" width="40%">
+
+<p>那也因為這樣<br>書看一看就一個口<br>而那些古字通常都是重要的名詞<br>我要馬得跳過要馬得去用我的電腦<br>哪來隨時能用電腦啊<br>我就看的正爽被卡，豈有此理 &#x3D;日&#x3D;<br>所以我很不爽，就產生了這篇文章…</p>
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>先來說說為什麼會出現口<br>一般我們的裝置中都會有一些預設字體<br>而我們看到的 “字” 其實是從字體檔中<br>把 <code>編號</code> 對應 <code>圖形</code> 然後顯示給我們看<br>那如果字體檔本身不支援到某些編號<br>自然就印不出那些字啦~ 所以就變成口了</p>
+<p>好的 那就開始進入正題</p>
+<p>這次要用的字體為 <a target="_blank" rel="noopener" href="http://fonts.jp/hanazono/"><code>hanazono</code></a> (俗稱 <code>花園字體</code>)<br>本身支持 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%97%A5%E9%9F%93%E7%B5%B1%E4%B8%80%E8%A1%A8%E6%84%8F%E6%96%87%E5%AD%97"><code>CJK</code></a> <code>Ext.A</code> ~ <code>Ext.F</code><br>而最新的擴充區只到 <code>G</code><br>等於說 <code>花園字體</code> 目前幾乎全包了各種詭異中文字，字量堪稱龐大<br>也讓我們期待什麼時候更新 <code>Ext.G</code> 進去吧XD</p>
+<h1 id="Notice-Tools"><a href="#Notice-Tools" class="headerlink" title="Notice &amp; Tools"></a>Notice &amp; Tools</h1><ul>
+<li>注意<ul>
+<li><p>:::danger<br>  &gt; <strong>ROOT Only</strong> &lt;</p>
+<p>  接下來會動到系統<br>  如果不會救磚，請不要恣意操作<br>  :::</p>
+</li>
+<li><p>沒有 root 的檔案瀏覽器是沒辦法動到系統的喔<br>  當然你也可以用 <code>adb shell</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>沒有 Root，不叫 Android [name&#x3D;chess]</p>
+</blockquote>
+<ul>
+<li><p>工具</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://forum.xda-developers.com/showthread.php?t=1523691">MiXplorer</a><ul>
+<li>先跟各位介紹一款 Android 上目前我認為最神的檔案瀏覽器<br>  這不是工商，因為我沒收錢<br>  至於它有多強大的功能，各位可以自己去看看</li>
+<li>接下來的操作你會大量需要它</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>所需檔案</p>
+<ul>
+<li><code>HanaMinA.ttf</code>, <code>HanaMinB.ttf</code> (下載花園字體解包獲得)</li>
+<li><code>/system/etc/fonts.xml</code></li>
+<li><code>/system/fonts/</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h1><ol>
+<li><p>先將<code>HanaMinA.ttf</code>, <code>HanaMinB.ttf</code> 複製到 <code>/system/fonts/</code> 底下<br> 並將這兩個檔案權限設定為 <code>644</code> (<code>-rw-r--r--</code>)<br> 並且 <code>擁有者</code> 與 <code>群組</code> 確定為 <code>root</code></p>
+</li>
+<li><p>打開 <code>/system/etc/fonts.xml</code> 開始修改<br> 直接拉到底部</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">family</span> <span class="attr">lang</span>=<span class="string">&quot;zg&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;400&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>MyanmarSangamZawgyi-Regular.otf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;700&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>MyanmarSangamZawgyi-Bold.otf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">family</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">familyset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 你會看到一堆類似的東西，裡面內容物可能不一樣<br> 不過沒關係<br> 我們只需要找到 <code>&lt;/familyset&gt;</code><br> 在它的前面新增東西即可</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">family</span> <span class="attr">lang</span>=<span class="string">&quot;zg&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;400&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>MyanmarSangamZawgyi-Regular.otf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;700&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>MyanmarSangamZawgyi-Bold.otf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">family</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- custom CKJ Extension begin --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">family</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;400&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>HanaMinA.ttf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">family</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">family</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">weight</span>=<span class="string">&quot;400&quot;</span> <span class="attr">style</span>=<span class="string">&quot;normal&quot;</span>&gt;</span>HanaMinB.ttf<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">family</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- custom CKJ Extension end --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">familyset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 那兩段灰色字之間就是我們自己新增的段落</p>
+<p> 儲存之後<br> 重開瀏覽器去看上面一堆口的網頁是否有正常顯示那些字<br> 有顯示那些奇怪字就代表成功囉~</p>
+ <img src="https://i.imgur.com/lkwvFo4.jpg" width="40%"></li>
+</ol>
+<h1 id="Epilogue"><a href="#Epilogue" class="headerlink" title="Epilogue"></a>Epilogue</h1><p>雖然說整個教學區塊非常短就結束了<br>但我幾乎都要爬爆 Google 了才找到解答 QQ<br>主要是因為網路上的教程幾乎都是在處理多字重的問題<br>完全沒看到討論擴充字<br>花了幾天終於看到一篇作者自己寫了 Magisk 套件來處理這個問題<br>我也去分析了<a target="_blank" rel="noopener" href="https://huansyuan1048576.blogspot.com/2019/04/Resources.html">這個專案</a>到底如何做到這個功能<br>也因此才完整理解了 <code>font.xml</code> 這份文件的運作原理</p>
+<p>再來就是為什麼標題會寫 <code>7.0+</code> 呢?<br>是因為 Android 7.0 之後的字體 loading 方式有所變更<br>目前為止到 10.0 應該都是可以用的 (?<br>在之前都是由 <code>fallback_fonts.xml</code> 與 <code>fonts.xml</code> 共存來處理<br>而在 7.0 之後直接捨棄了 <code>fallback_fonts.xml</code><br>並將整個 <code>fonts.xml</code> 重寫<br>使得檔案減少但是功能卻更齊全也更容易讀懂</p>
+<p>最後的最後我一定要噴一下<br>原本用了這支 ASUS Zenfone 3 Deluxe  一年多就不維護系統<br>這支是旗艦機欸 ASUS 大大<br>連原本自家論壇都被抹掉 一堆資料都找不太到<br>這些綜合因素讓我很不爽<br>一度有了這隻壞了就想要跳坑 iPhone 的想法</p>
+<p>但經過這次之後我覺得還是 Android 比較香<br>喔絕對不是 ASUS 香<br>我以後不會再買這家的手機了<br>再加上 iPhone 感覺越來越沒有特別突出的地方<br>所以最後決定還是要留在我大安卓自由國度~</p>
+<p>不知道這隻什麼時候會壞掉 我想換 Pixel ~</p>
+<blockquote>
+<p>如有任何指教 歡迎發信給我~</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2020-06-18-AIS3-2020-pre-exam-Writeups/" rel="prev" title="AIS3 2020 pre-exam Writeups">
+                  <i class="fa fa-angle-left"></i> AIS3 2020 pre-exam Writeups
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2021-07-30-%E5%82%99%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7QQ/" rel="next" title="備份的重要性QQ">
+                  備份的重要性QQ <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2018 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chess Kuo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"blog-chesskuo-tw","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
